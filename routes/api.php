@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:api', 'throttle:60,1')->group(function () {
-    Route::get('/places', 'GeoLocationController@places')->name('places.api');
+    
 });
 
 Route::group(['middleware' => ['cors', 'json.response', 'throttle:60,1']], function () {
     Route::post('/login', 'Auth\ApiAuthController@login')->name('login.api');
-    Route::post('/signup', 'Auth\ApiAuthController@signup')->name('signup.api');
+    Route::post('/register', 'Auth\ApiAuthController@register')->name('register.api');
 });

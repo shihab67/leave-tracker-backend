@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 
 class ApiAuthController extends Controller
 {
-    public function signup(Request $request)
+    public function register(Request $request)
     {
         $validator      = Validator::make($request->all(), [
             'email'     => 'required|string|email|max:255|unique:users',
