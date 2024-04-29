@@ -160,8 +160,6 @@
 								">
                             <!-- PREHEADER -->
 
-                            <!-- LOGO -->
-                            <!-- Image text color should be opposite to background color. Set your url, image src, alt and title. Alt text should fit the image size. Real image size should be x2. URL format: http://domain.com/?utm_source={{ Campaign - Source }}&utm_medium=email&utm_content=logo&utm_campaign={{ Campaign - Name }} -->
                             <a target="_blank" style="text-decoration: none" href="#"><img border="0"
                                     vspace="0" hspace="0"
                                     src="https://raw.githubusercontent.com/konsav/email-templates/master/images/logo-black.png"
@@ -250,12 +248,9 @@
                             <p>
                                 <strong>Date:</strong> {{ $data['start_date'] }} - {{ $data['end_date'] }}
                             </p>
-							
                         </td>
                     </tr>
 
-                    <!-- BUTTON -->
-                    <!-- Set button background color at TD, link/text color at A and TD, font family ("sans-serif" or "Georgia, serif") at TD. For verification codes add "letter-spacing: 5px;". Link format: http://domain.com/?utm_source={{ Campaign - Source }}&utm_medium=email&utm_content={{ Button - Name }}&utm_campaign={{ Campaign - Name }} -->
                     <tr>
                         <td align="center" valign="top"
                             style="
@@ -302,7 +297,7 @@
 														font-weight: 400;
 														line-height: 120%;
 													"
-                                                href="">
+                                                href="#">
                                                 {{ $data['status'] }}
                                             </a>
                                         </td>
