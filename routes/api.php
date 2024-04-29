@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:api', 'throttle:60,1')->group(function () {
-    
+    Route::post('user/update-status', 'UserController@updateStatus')->name('user.update.status');
 });
 
 Route::group(['middleware' => ['cors', 'json.response', 'throttle:60,1']], function () {
-    Route::post('/login', 'Auth\ApiAuthController@login')->name('login.api');
-    Route::post('/register', 'Auth\ApiAuthController@register')->name('register.api');
+    Route::post('login', 'Auth\ApiAuthController@login')->name('login.api');
+    Route::post('register', 'Auth\ApiAuthController@register')->name('register.api');
 });
