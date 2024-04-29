@@ -16,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api', 'throttle:60,1')->group(function () {
     Route::post('user/update-status', 'UserController@updateStatus')->name('user.update.status');
+
+    Route::group(['prefix' => 'leave-request'], function () {
+        Route::post('/', 'LeaveRequestController@store')->name('leave.request.store');
+        Route::post('/approve', 'LeaveRequestController@approve')->name('leave.request.approve');
+    });
 });
 
 Route::group(['middleware' => ['cors', 'json.response', 'throttle:60,1']], function () {

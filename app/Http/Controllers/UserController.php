@@ -25,6 +25,6 @@ class UserController extends Controller
 
         return response([
             'message'   => 'User status updated successfully',
-        ]);
+        ], 200);
     }
 }

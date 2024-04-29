@@ -16,6 +16,7 @@ class LeaveRequest extends Model
         'end_date',
         'reason',
         'status',
+        'approved_by',
         'remarks',
     ];
 }
