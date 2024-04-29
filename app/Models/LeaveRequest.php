@@ -19,4 +19,14 @@ class LeaveRequest extends Model
         'approved_by',
         'remarks',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function leaveType()
+    {
+        return $this->belongsTo(LeaveType::class);
+    }
 }
