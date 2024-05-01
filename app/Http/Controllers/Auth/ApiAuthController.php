@@ -62,7 +62,7 @@ class ApiAuthController extends Controller
                 $token      = $user->createToken('Laravel Password Grant Client')->accessToken;
                 $response = ['user' => $user, 'token' => $token];
 
-                return response($response, 200);
+                return response()->json(['data' => $response], 200);
             } else {
                 $response   = ["message" => "Password mismatch"];
                 return response($response, 422);
