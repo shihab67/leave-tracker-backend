@@ -84,4 +84,16 @@ class LeaveRequestController extends Controller
 
         return response(['message' => 'Leave request updated successfully'], 200);
     }
+
+    public function all(Request $request)
+    {
+        $user = $request->user();
+        $leaves = LeaveRequest::when(isset($user) && isset($user->role) && $user->role->id == 3, function ($query) use ($user) {
+            return $query->where('user_id', $user->id);
+        })
+            ->with('leaveType', 'user', 'approvedBy')
+            ->get();
+
+        return response(['data' => $leaves], 200);
+    }
 }
