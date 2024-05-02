@@ -99,6 +99,7 @@ class LeaveRequestController extends Controller
             return $query->where('user_id', $user->id);
         })
             ->with('leaveType', 'user', 'approvedBy')
+            ->orderBy('id', 'DESC')
             ->get();
 
         return response(['data' => $leaves], 200);
