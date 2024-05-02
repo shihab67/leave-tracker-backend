@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->foreignId('role_id')->constrained('roles')->onDelete('cascade')->default(3); // 3 = employee
-            $table->enum('status', ['ineactive', 'active', 'suspended'])->default('ineactive');
+            $table->enum('status', ['inactive', 'active', 'suspended'])->default('inactive');
             $table->rememberToken();
             $table->timestamps();
         });

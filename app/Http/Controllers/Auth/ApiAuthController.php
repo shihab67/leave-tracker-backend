@@ -33,10 +33,7 @@ class ApiAuthController extends Controller
             $user->role_id              = isset($request->role_id) ? $request->role_id : 3;
             $user->save();
 
-            $token                      = $user->createToken('Laravel Password Grant Client')->accessToken;
-            $response                   = ['token' => $token];
-
-            return response($response, 200);
+            return response()->json(['status' => 'success', 'message' => 'User registered successfully'], 200);
         } catch (\Throwable $th) {
             return response(['errors' => $th->getMessage()], 422);
         }
@@ -62,7 +59,13 @@ class ApiAuthController extends Controller
                 $token      = $user->createToken('Laravel Password Grant Client')->accessToken;
                 $response = ['user' => $user, 'token' => $token];
 
-                return response()->json(['data' => $response], 200);
+                if ($user->status === 'inactive') {
+                    return response()->json(['message' => 'Your account is inactive.']);
+                } else if ($user->status === 'suspended') {
+                    return response()->json(['message' => 'Your account is suspended.']);
+                } else {
+                    return response()->json(['data' => $response], 200);
+                }
             } else {
                 $response   = ["message" => "Password mismatch"];
                 return response($response, 422);
