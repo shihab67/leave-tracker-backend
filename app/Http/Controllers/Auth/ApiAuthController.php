@@ -17,7 +17,7 @@ class ApiAuthController extends Controller
             'name'      => 'required|string',
             'email'     => 'required|string|email|max:255|unique:users',
             'password'  => 'required|string|min:6|confirmed',
-            'role_id'   => 'required|exists:roles,id',
+            // 'role_id'   => 'required|exists:roles,id',
         ]);
 
         if ($validator->fails()) {
@@ -30,7 +30,7 @@ class ApiAuthController extends Controller
             $user->email                = $request->email;
             $user->password             = Hash::make($request->password);
             $user->remember_token       = Str::random(10);
-            $user->role_id              = $request->role_id;
+            $user->role_id              = isset($request->role_id) ? $request->role_id : 3;
             $user->save();
 
             $token                      = $user->createToken('Laravel Password Grant Client')->accessToken;
