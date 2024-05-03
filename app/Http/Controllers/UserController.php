@@ -37,7 +37,9 @@ class UserController extends Controller
 
     public function getUser(Request $request)
     {
-        $user = User::find($request->id);
+        $user = User::where('id', $request->id)
+            ->with('role', 'approvedLeaves', 'pendingLeaves', 'rejectedLeaves', 'allLeaves')
+            ->first();
         return response(['status' => 'success', 'data' => $user], 200);
     }
 }

@@ -48,4 +48,24 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class);
     }
+
+    public function allLeaves()
+    {
+        return $this->hasMany(LeaveRequest::class);
+    }
+
+    public function approvedLeaves()
+    {
+        return $this->hasMany(LeaveRequest::class)->where('status', 'approved');
+    }
+
+    public function pendingLeaves()
+    {
+        return $this->hasMany(LeaveRequest::class)->where('status', 'pending');
+    }
+
+    public function rejectedLeaves()
+    {
+        return $this->hasMany(LeaveRequest::class)->where('status', 'rejected');
+    }
 }
