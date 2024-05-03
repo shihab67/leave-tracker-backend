@@ -27,4 +27,10 @@ class UserController extends Controller
             'message'   => 'User status updated successfully',
         ], 200);
     }
+
+    public function getAllUsers(Request $request)
+    {
+        $users = User::orderBy('id', 'DESC')->with('role')->get();
+        return response(['data' => $users], 200);
+    }
 }

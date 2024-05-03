@@ -15,6 +15,10 @@ class Access
      */
     public function handle(Request $request, Closure $next, ...$roles): Response
     {
+        if ($request->user()->status === 'inactive' || $request->user()->status === 'suspended') {
+            return response()->json(['message' => 'Your account is inactive or suspended.'], 403);
+        }
+
         if (!in_array($request->user()->role->id, $roles)) {
             return response()->json(['message' => 'You don\'t have permission to access this resource.'], 403);
         }
