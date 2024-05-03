@@ -92,12 +92,25 @@ class LeaveRequestController extends Controller
         return response(['message' => 'Leave request updated successfully'], 200);
     }
 
-    public function all(Request $request)
+    public function getLeaves(Request $request, $type = null)
     {
         $user = $request->user();
         $leaves = LeaveRequest::when(isset($user) && isset($user->role) && $user->role->id == 3, function ($query) use ($user) {
             return $query->where('user_id', $user->id);
         })
+            ->when(isset($type) && !is_null($type) && $type !== 'all', function ($query) use ($type) {
+                switch ($type) {
+                    case 'pending':
+                        return $query->where('status', 'pending');
+                        break;
+                    case 'approved':
+                        return $query->where('status', 'approved');
+                        break;
+                    case 'rejected':
+                        return $query->where('status', 'rejected');
+                        break;
+                }
+            })
             ->with('leaveType', 'user', 'approvedBy')
             ->orderBy('id', 'DESC')
             ->get();

@@ -20,7 +20,7 @@ Route::middleware('auth:api', 'throttle:60,1')->group(function () {
     Route::group(['prefix' => 'leave-request'], function () {
         Route::post('/', 'LeaveRequestController@store')->name('leave.request.store');
         Route::post('/approve', 'LeaveRequestController@approve')->name('leave.request.approve')->middleware('access:1,2');
-        Route::get('/all', 'LeaveRequestController@all')->name('leave.request.reject')->middleware('access:1,2,3');
+        Route::get('/all/{type?}', 'LeaveRequestController@getLeaves')->name('leave.request.reject')->middleware('access:1,2,3');
     });
 });
 
