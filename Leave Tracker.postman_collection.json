@@ -1,0 +1,411 @@
+{
+	"info": {
+		"_postman_id": "1064fe8c-74bb-43cf-ac86-084ee512072d",
+		"name": "Leave Tracker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10879134"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "test@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "adminpass",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"login"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "user@gmail.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "adminpass",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Sayedur Rahman employee",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "user@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "adminpass",
+							"type": "text"
+						},
+						{
+							"key": "role_id",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "adminpass",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/register",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Update Status",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOWZhM2YzNGE3Y2RmMDI2Y2VkYWM0Y2I1OTEwZTcwNmZlN2RlOWI1YjI1MzkxYzM4ZTFmZTY5OTliZmMxNjkyYTBkNmM2NDEzZTU3MWVhY2QiLCJpYXQiOjE3MTQzNzcwNTguNDUyNDk3LCJuYmYiOjE3MTQzNzcwNTguNDUyNTAxLCJleHAiOjE3NDU5MTMwNTguMTY2MzE3LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.RGygSYcuEAKRGPShNrN7G7xgRhBDbU6dRVHyQDI-hKO4cT0EMLqv7LpLTg_cbw1ftnfUJuPWkQRTUapMreLOcFpW2vTEm5F07SarwYKtPfjki5u3MXx6hwRwFqIM8syC6vfpnMs-9J6iNDR0ory3FycJygErLYq7ZaUgmQiKRZSF4NqHNkKxYS8bBl4dKF2DziBDEJYxau6oEfkMyF3GjCLtkLdbhETH50cFw8-5glnt-1YfTyiLbeNCHflRn7d0qxgvpH8kVuNJB6CancLTeRzMqzPLzgRPtJEzlAfPeTLh8fyllBIMQbEXZavQa2xd0FBKegRg3fCwxlkIJ4l-BWiQowDaZ1WmPhZ8EfDg1tI62OPMUmDI0dzSCFAGTh9BCfZIGuNOsKkHIGevLT4EzKo66F0IznQWD6qeEhdkD5Xxsqg-Nh3vs278C0x3k6oP7-cabPtc39sL7gDiTd9ao3oufMQOZgN4PfKkxcEvl3DxCdh1Z-lJg7IcguTJpsBNsg3Uel4VWNgoGOdopnUc58ES0IULXuSJ6DmjAKdHnD2BhcZOIFJPWgdxhlKC9WdyVfgKKRmeVCndJZ9VrxCzSFO3-y0rYGep09J7ml0KNHgddyP7EtkbLmiMGrlT7cer8edspZQleFcRiCLuvG4pUocRjzPfYmt25zq0FKypvpQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "active",
+							"description": "active, inactive, suspended",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/user/update-status",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"update-status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Leave Request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOThjNDlmYWQ5OWY3YzllNjdhMjZmZmFjZWJhMWU5NWRiMDJhY2ViNWI5OTM1N2U0NWQ0ZDJmMmU3ZGJhNTM2NTljMmY0ZWNhNTc2NGRmYmUiLCJpYXQiOjE3MTQzOTk2MzkuODk2Mjg1LCJuYmYiOjE3MTQzOTk2MzkuODk2Mjg4LCJleHAiOjE3NDU5MzU2MzkuODkxMjczLCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.DYEY7knXjtTXEp-zsLIGrI-3TL8-_BQqr5Kmz_jKCAYiu15YETGUYX3GtHGhHPP-Sbp9LqRWt4fdT8TTCEHSCTcm9mKfoIvTFg2xtvLCa-a6gRKXfitTsur1lcCaGALYzAGmFpELsptG53UerYtktv0iYQSf0g9XZGxU6IUY-YeL5aDg5S_cu01FzP0PDohf3xkvloFD23qDscPVgM0eX2GCEqVzCWPwUPmpn03TU92Imv6mEv8oHF0H73Wp0bfZ5rr7WujBqV3XvGLhUL4sujvP4MS5QRiuXIXdL7mqGcKiSwS1Es4BNC7lOOyTpQUh8Qz_h3dlwMVRG48Ih0xA8r-Z1UFN6FzpCAmcf4HjhFobQ_eHGi6YYo67m2Uv3DImEs-vE00SRtfGoCkn3cGs0wkjxNJLzba0q7J_gwrHZceAjxfsF2DEoCD-ZnbXETecwBsSaOA7uaz1aKmPamAwZBMndMOQDbz_JchGfJKR0uA5603jcMmAhN-RPVmTF5g2jNiblimlnrO2rjTtuQtEyiOBiN0szavCcHOLxQCtn5ChmhHHLoxk3YN5DJWlbtl7emVNl0bV4zaDQB75PrAIMSrfRJKoX6iwEaJNj204geXdIoASE-LoJTgidQRjF9ARELa4GsQnnzOy1uem4k5z5NqblGje-vnniPaKCUnpe9A",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "leave_type_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "start_date",
+							"value": "2024-04-29",
+							"type": "text"
+						},
+						{
+							"key": "end_date",
+							"value": "2024-04-29",
+							"type": "text"
+						},
+						{
+							"key": "reason",
+							"value": "some reason",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/leave-request",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"leave-request"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Leave Request - Approve",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOThjNDlmYWQ5OWY3YzllNjdhMjZmZmFjZWJhMWU5NWRiMDJhY2ViNWI5OTM1N2U0NWQ0ZDJmMmU3ZGJhNTM2NTljMmY0ZWNhNTc2NGRmYmUiLCJpYXQiOjE3MTQzOTk2MzkuODk2Mjg1LCJuYmYiOjE3MTQzOTk2MzkuODk2Mjg4LCJleHAiOjE3NDU5MzU2MzkuODkxMjczLCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.DYEY7knXjtTXEp-zsLIGrI-3TL8-_BQqr5Kmz_jKCAYiu15YETGUYX3GtHGhHPP-Sbp9LqRWt4fdT8TTCEHSCTcm9mKfoIvTFg2xtvLCa-a6gRKXfitTsur1lcCaGALYzAGmFpELsptG53UerYtktv0iYQSf0g9XZGxU6IUY-YeL5aDg5S_cu01FzP0PDohf3xkvloFD23qDscPVgM0eX2GCEqVzCWPwUPmpn03TU92Imv6mEv8oHF0H73Wp0bfZ5rr7WujBqV3XvGLhUL4sujvP4MS5QRiuXIXdL7mqGcKiSwS1Es4BNC7lOOyTpQUh8Qz_h3dlwMVRG48Ih0xA8r-Z1UFN6FzpCAmcf4HjhFobQ_eHGi6YYo67m2Uv3DImEs-vE00SRtfGoCkn3cGs0wkjxNJLzba0q7J_gwrHZceAjxfsF2DEoCD-ZnbXETecwBsSaOA7uaz1aKmPamAwZBMndMOQDbz_JchGfJKR0uA5603jcMmAhN-RPVmTF5g2jNiblimlnrO2rjTtuQtEyiOBiN0szavCcHOLxQCtn5ChmhHHLoxk3YN5DJWlbtl7emVNl0bV4zaDQB75PrAIMSrfRJKoX6iwEaJNj204geXdIoASE-LoJTgidQRjF9ARELa4GsQnnzOy1uem4k5z5NqblGje-vnniPaKCUnpe9A",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "leave_request_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "approved",
+							"type": "text"
+						},
+						{
+							"key": "remarks",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/leave-request/update",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"leave-request",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Request",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYzU0OGI1NDZiMmUxNzFhNGUzYzAzNDkzODZjNDRkNzQ5N2U1YjNlZmQ4YTBmZGVmZDE0OWVmM2M3ZDA4N2ViY2NjOWE4ZTlkMTBiNzgwMmQiLCJpYXQiOjE3MTQ2MzQzMDQuNzMwMzYxLCJuYmYiOjE3MTQ2MzQzMDQuNzMwMzY1LCJleHAiOjE3NDYxNzAzMDQuNjEyODU5LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.OZ-9KQjm-BrhiRmlpbpnqFtbyDtS4yNBWbv50I0QcRxGE1Pm6hxp_HTb0u86zaiPLgq2I6aFOUJz0lw-U-fs_byxBKOHmnBpR4776DxxeCw01MZ-RaPU1wAcE-LIsodoDed8ZFA2NdmR46kTWJ--tJNQ14CP-_eHE0s40y614qwCRGzHLQolfAdSiLAlQrkmD1uSrNx34Op6pS5mYOa3auLfINnpNaKY1tfF4LEWsJ6uIE2AbAj2GCiZMu0XKYU8O84Sf4RuPpv27wccBYHKbOpXp05aL8uxkgI60XA2uHXs3uSgmJZqcGZphCp98IJZcXi5aaexCq7h2DTeG4wSnfk-IRO7HsEA2MHzYsA44oWcW_lLHEFcHHXcHNX8Pk8O1oGXGlyDUbHOriWHW-iguALjqcy9UR1W2b5ANAj-JvnEQlwUG9aoCYk-bbB3lPfiHv7glWh_acSzV1wjRExgn5BQJM0hxL9lPBB8smUPVVRWpkrPKNsJQzE3AjrP_1LYgK2iHzB0kFbRYkIcLHYl1_PeWfDZWiUsaG-ioJijWLqQrWiGSRJJwqz4kNOENWCt52KCR2bqw5FB_yoxVPoi6nTkBOat6hoGyauApu9J8bS3DvhudNA4j6TguesbOwIoacfIfzOjIWSjUMplpv4wPqG9iJ7S3SvKwDqdp4vaOlI"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/leave-request/all",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"leave-request",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Leave",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOTMyZDFmOWI1ZDlhODEyMDUwNzY4N2MyZjA2MmE0YzMwNWYzYjQyZGVhNTUyYjZlZmJmZjc5MDRjNTA0NThiZmZlOWZmNDQzMmI1N2M5ZTUiLCJpYXQiOjE3MTQ3MTc3NDEuMjY0MDg1LCJuYmYiOjE3MTQ3MTc3NDEuMjY0MDg3LCJleHAiOjE3NDYyNTM3NDEuMTg3NjkzLCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.OhlEL8_GuCBc8ztdy3urDAO9u8493D-TGiaqVh-VkfeXbmrYxr29arXMLcqfxxtJ4O_wCCtn4qglVLPzUwDcjVjaWFbaCSBjIKrtKzfkhjZF9ov3vDeYgnAwQt9zlU-ff1oE_UrBijdVIIAWZRwl4oc5pXOzqsY1NCJIXAu5c2JCj29G00jcrCgAeuDknAoxQh4Vkgi91STkxgKhK7cBhVpxcB380xJlwEbd65FNncmaFoYieYA7WJatnZiCQSAC-HXBWAoFwpIP1-Ak0GIyBtmtjvcpRi40SVH5wKZW_sL2bzO786OnUB2lWmynlEeIOs2gtmh0zTBo8URBGpK-clsbROkYxnW2dbIhFfzPXh8l_IV87P5at5jGDDJ4gEXAwyz-gwj8iVU7_GJ6zNUAwCAv4is-JnQdh488MPS_5YFBkar928Pvlv-br7u7RnY_uuZn0i040qZMtmVJa23jJQfMvFcKwWSjBwfQgkJtuQVe1ix4n969HfNqSiSo-AY2VUc7oVpdFjRp7m2-SuO06lvaQ38J7DSAvqBe3Aer0BG_sbjIISdvmKMpV65wWPRYk9EbSrqvFPpWDQhWrnWw8CuSFrIqaoC0qqI-hfykzcx4BP_ow3ek1B-KIixMvCy2NoDJeYm-CS93g8HOTrAorCoOGf9TN49zK1fD4zH5QWk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/leave-request/13",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"leave-request",
+						"13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMTc5OTljODc2NDVlNmQzNTdlNmNhZWJmYzAyYTk3YWI2YzU2ZTYxNzBjOWZiNTE1MjkxZWYwNmM3NzhjYWI5Y2RlOTUxYjg4NDU3MTcyMmQiLCJpYXQiOjE3MTQ3MzM3NDEuMjEyNzU3LCJuYmYiOjE3MTQ3MzM3NDEuMjEyNzU5LCJleHAiOjE3NDYyNjk3NDEuMjA4NjMsInN1YiI6IjIiLCJzY29wZXMiOltdfQ.EGXp4dd6GUKU4PcmXDPFSx2TmqXkYipPmG6tc0TnAc3R0GSmiWwgAzY44FcinN0KyZFGy6sPmOhEg22-v_OO7lRp5wZXuTSMmLhy7YLz6rxqajDztpKaEfWdMBIEj38_d-EvdOnvj9aFVQYK7zzv7L0Ww7eQLDZwgGcYqqnJT1ZqyLMqoHYZt1vpbcBulx3cFb-vaqFrKVqpfVofanvMf89MjDMn3CS1xBoO_kS0zmQBJfMTY1JEWWJyfzRrw5iXWGzIXayXQ7J2X97t96NlrILrDt4bTKqfOyEDLmTt4tbwZt7XrPFMEm_k7qNYAmbNVt6NUaiaYLyXLC-wE6qRmvO0XauXVt23vDMu5FiXBo2u6bqleR7LRQPUUTsEv82_1eGqT1lGXR6cHVNk7PgBA1J_VTe8j4z2FsM-zqBzcP-sP0Oe4rlH2In0HTigmBaF3ie0QGPtUf0wb67RTio3wbAIC34EiftUEObw2yZYdOAQGJ_kIm8WY-s0rOwB4JViF2mP-SuibVD_qySua4Nu_nFRf2gu3rkwH4vXQ0Vd1H12HuVgM0O98yO9uqi-OotDv9qXXFr4aJ6sS7Dfu4rCVebrdpoC2De1ZRfRm4jKLisk2IUGzTWs-e54W7jPutleoHVbzAwb4-QBNkJm9BcObHc4zUJAl7KtV7v1bZ90ytM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/users",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMTc5OTljODc2NDVlNmQzNTdlNmNhZWJmYzAyYTk3YWI2YzU2ZTYxNzBjOWZiNTE1MjkxZWYwNmM3NzhjYWI5Y2RlOTUxYjg4NDU3MTcyMmQiLCJpYXQiOjE3MTQ3MzM3NDEuMjEyNzU3LCJuYmYiOjE3MTQ3MzM3NDEuMjEyNzU5LCJleHAiOjE3NDYyNjk3NDEuMjA4NjMsInN1YiI6IjIiLCJzY29wZXMiOltdfQ.EGXp4dd6GUKU4PcmXDPFSx2TmqXkYipPmG6tc0TnAc3R0GSmiWwgAzY44FcinN0KyZFGy6sPmOhEg22-v_OO7lRp5wZXuTSMmLhy7YLz6rxqajDztpKaEfWdMBIEj38_d-EvdOnvj9aFVQYK7zzv7L0Ww7eQLDZwgGcYqqnJT1ZqyLMqoHYZt1vpbcBulx3cFb-vaqFrKVqpfVofanvMf89MjDMn3CS1xBoO_kS0zmQBJfMTY1JEWWJyfzRrw5iXWGzIXayXQ7J2X97t96NlrILrDt4bTKqfOyEDLmTt4tbwZt7XrPFMEm_k7qNYAmbNVt6NUaiaYLyXLC-wE6qRmvO0XauXVt23vDMu5FiXBo2u6bqleR7LRQPUUTsEv82_1eGqT1lGXR6cHVNk7PgBA1J_VTe8j4z2FsM-zqBzcP-sP0Oe4rlH2In0HTigmBaF3ie0QGPtUf0wb67RTio3wbAIC34EiftUEObw2yZYdOAQGJ_kIm8WY-s0rOwB4JViF2mP-SuibVD_qySua4Nu_nFRf2gu3rkwH4vXQ0Vd1H12HuVgM0O98yO9uqi-OotDv9qXXFr4aJ6sS7Dfu4rCVebrdpoC2De1ZRfRm4jKLisk2IUGzTWs-e54W7jPutleoHVbzAwb4-QBNkJm9BcObHc4zUJAl7KtV7v1bZ90ytM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/user/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stats",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMTc5OTljODc2NDVlNmQzNTdlNmNhZWJmYzAyYTk3YWI2YzU2ZTYxNzBjOWZiNTE1MjkxZWYwNmM3NzhjYWI5Y2RlOTUxYjg4NDU3MTcyMmQiLCJpYXQiOjE3MTQ3MzM3NDEuMjEyNzU3LCJuYmYiOjE3MTQ3MzM3NDEuMjEyNzU5LCJleHAiOjE3NDYyNjk3NDEuMjA4NjMsInN1YiI6IjIiLCJzY29wZXMiOltdfQ.EGXp4dd6GUKU4PcmXDPFSx2TmqXkYipPmG6tc0TnAc3R0GSmiWwgAzY44FcinN0KyZFGy6sPmOhEg22-v_OO7lRp5wZXuTSMmLhy7YLz6rxqajDztpKaEfWdMBIEj38_d-EvdOnvj9aFVQYK7zzv7L0Ww7eQLDZwgGcYqqnJT1ZqyLMqoHYZt1vpbcBulx3cFb-vaqFrKVqpfVofanvMf89MjDMn3CS1xBoO_kS0zmQBJfMTY1JEWWJyfzRrw5iXWGzIXayXQ7J2X97t96NlrILrDt4bTKqfOyEDLmTt4tbwZt7XrPFMEm_k7qNYAmbNVt6NUaiaYLyXLC-wE6qRmvO0XauXVt23vDMu5FiXBo2u6bqleR7LRQPUUTsEv82_1eGqT1lGXR6cHVNk7PgBA1J_VTe8j4z2FsM-zqBzcP-sP0Oe4rlH2In0HTigmBaF3ie0QGPtUf0wb67RTio3wbAIC34EiftUEObw2yZYdOAQGJ_kIm8WY-s0rOwB4JViF2mP-SuibVD_qySua4Nu_nFRf2gu3rkwH4vXQ0Vd1H12HuVgM0O98yO9uqi-OotDv9qXXFr4aJ6sS7Dfu4rCVebrdpoC2De1ZRfRm4jKLisk2IUGzTWs-e54W7jPutleoHVbzAwb4-QBNkJm9BcObHc4zUJAl7KtV7v1bZ90ytM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/stats",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMmIwMDdkMmZmYTIyYzI2NTY5YTllNjE1NTk2MWZmNjIwZTQ0NWI0ZWE1Mjg2NjczMjkyOWY0MzhmODMyYzQ4NTU3YjQxNGM3MGVhZDM3YjQiLCJpYXQiOjE3MTQ3NDYwMjIuOTQ1NzY1LCJuYmYiOjE3MTQ3NDYwMjIuOTQ1NzY2LCJleHAiOjE3NDYyODIwMjIuOTQxNTQ0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.gtQ5qf4SXRiovJOrVXDssR6kT_ADMDdEnsLVWGea3Wo1g5Ye5tIg7Y8Sb2lDkX9G_8wTYE6FKIL60Pp-Petm8ifMto8dyCXCG1sM_hhO3b3jVYW4QZaAIq3-AR-Aa9DyKqSU1mrvnftqJ4YyE6c6jw4qxwA3ggTFuolEaJgWWIy0Jn85wU1iQfJyOHfqDz7roaTVs9vUj9ArVXBenq8HHExkgp63MxJ_T37Q3kj5d_eeGDPZxA2X7oGbTSF6WTYYkC12KtYB_Rbv6TvHTljOHp0Px48n6gh17Yow-ANkR5Lp0k3LksZuBiFdXKBiuVSet8URP4d59wZ0k3sFdAaC3j7d7bFj4mmQce-Sjx3Y732Ebhc35dWETrOjKfVpzaQOn_C0n6g52NyYN7KdznNglIEu2u86svVw5U7SuxWS05WpySYzTLd_Dx_x-V7PYxPgYNi8JaTd-OTtVyEdO4Pi1qbNzkm9zpzD5Q8OYTtQAvxG7uQK2W4bEIoUPAmhiIe5QwqZURi6ykco9bq55SQQ23ZLVe-FwlI3ztULcv9_Z3msY22Had_UVXOx6dZMDGgYzfPDPvhTD1BtMum8zgENqL-JCwWbUuO72hfyJcWTWdBNP-fJi5mW5XdpVpOeqUgw7qWZLRH6HuDbh8sftylyYZ--gZ4YIlzidit_rLa5xuI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "current_password",
+							"value": "adminpass",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "adminpass",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "adminpass",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/user/update-password",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"update-password"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000"
+		}
+	]
+}
