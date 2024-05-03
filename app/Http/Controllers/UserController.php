@@ -24,6 +24,7 @@ class UserController extends Controller
         $user->save();
 
         return response([
+            'status' => 'success',
             'message'   => 'User status updated successfully',
         ], 200);
     }
