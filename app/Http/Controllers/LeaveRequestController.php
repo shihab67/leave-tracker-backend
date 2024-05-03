@@ -58,7 +58,7 @@ class LeaveRequestController extends Controller
         }
     }
 
-    public function approve(Request $request)
+    public function update(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'leave_request_id' => 'required|exists:leave_requests,id',
@@ -89,7 +89,7 @@ class LeaveRequestController extends Controller
         Mail::to($request->user()->email)->send(new LeaveRequestMail($details));
         //send mail ends
 
-        return response(['message' => 'Leave request updated successfully'], 200);
+        return response(['status' => 'success', 'message' => 'Leave request updated successfully'], 200);
     }
 
     public function getLeaves(Request $request, $type = null)
