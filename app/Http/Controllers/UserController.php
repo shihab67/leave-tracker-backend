@@ -28,9 +28,15 @@ class UserController extends Controller
         ], 200);
     }
 
-    public function getAllUsers(Request $request)
+    public function getAllUsers()
     {
         $users = User::orderBy('id', 'DESC')->with('role')->get();
         return response(['data' => $users], 200);
+    }
+
+    public function getUser(Request $request)
+    {
+        $user = User::find($request->id);
+        return response(['status' => 'success', 'data' => $user], 200);
     }
 }
