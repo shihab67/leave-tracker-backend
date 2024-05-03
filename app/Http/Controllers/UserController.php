@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -41,5 +42,35 @@ class UserController extends Controller
             ->with('role', 'approvedLeaves', 'pendingLeaves', 'rejectedLeaves', 'allLeaves')
             ->first();
         return response(['status' => 'success', 'data' => $user], 200);
+    }
+
+    public function updatePassword(Request $request)
+    {
+        info($request->all());
+        $validator      = Validator::make($request->all(), [
+            'current_password'     => 'required|string',
+            'password'  => 'required|string|min:6|confirmed',
+        ]);
+
+        if ($validator->fails()) {
+            return response(['errors' => $validator->errors()->all()], 422);
+        }
+
+        $user = User::find($request->user()->id);
+
+        if ($user) {
+            if (Hash::check($request->current_password, $user->password)) {
+                $user->password = Hash::make($request->password);
+                $user->save();
+
+                return response()->json(['status' => 'success', 'message' => 'Password updated successfully'], 200);
+            } else {
+                $response   = ["message" => "Current password mismatch"];
+                return response($response, 422);
+            }
+        } else {
+            $response       = ["message" => 'User does not exist'];
+            return response($response, 422);
+        }
     }
 }

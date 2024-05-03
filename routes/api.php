@@ -20,6 +20,7 @@ Route::middleware('auth:api', 'throttle:60,1')->group(function () {
     Route::get('users', 'UserController@getAllUsers')->name('user.all')->middleware('access:1,2');
     Route::get('user/{id}', 'UserController@getUser')->name('user')->middleware('access:1,2,3');
     Route::post('user/update-status', 'UserController@updateStatus')->name('user.update.status')->middleware('access:1,2');
+    Route::post('user/update-password', 'UserController@updatePassword')->name('user.update.password')->middleware('access:1,2,3');
 
     Route::group(['prefix' => 'leave-request'], function () {
         Route::post('/', 'LeaveRequestController@store')->name('leave.request.store');
