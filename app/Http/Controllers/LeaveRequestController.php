@@ -117,4 +117,11 @@ class LeaveRequestController extends Controller
 
         return response(['data' => $leaves], 200);
     }
+
+    public function getLeave($id)
+    {
+        $leave = LeaveRequest::with('leaveType', 'user', 'approvedBy')
+            ->find($id);
+        return response(['status' => 'success', 'data' => $leave], 200);
+    }
 }
